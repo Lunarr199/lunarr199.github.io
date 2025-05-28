@@ -71,7 +71,7 @@ h2 {
   overflow: hidden;
   width: 0;
   max-width: fit-content;
-  animation: typing 6s steps(60, end) forwards;
+  animation: typing 3s steps(30, end) forwards;
 }
 
 @keyframes typing {
