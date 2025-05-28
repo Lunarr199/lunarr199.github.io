@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
+
+:root {
+  --bg: #f9f9f9;
+  --fg: #222;
+  --text: #4e4c4c;
+  --link: #007bff;
+  --link-hover: #0056b3;
+}
+body.dark {
+  --bg: #111;
+  --fg: #eee;
+  --text: #afafaf;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Metrophobic", sans-serif;
+  font-weight: 400;
+  transition:
+    background 0.4s,
+    color 0.4s;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+p {
+  color: var(--text);
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0.8em 0;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  margin-bottom: 1em;
+}
+
+.typewriter {
+  font-family: monospace;
+  border-right: 2px solid var(--fg);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  max-width: fit-content;
+  animation: typing 6s steps(60, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.btns {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  border: none;
+  background: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  margin-top: 4rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.expand-about {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.about-toggle {
+  background: transparent;
+  color: var(--fg);
+  font-size: 1rem;
+  border: 2px solid var(--fg);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.about-toggle:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.about-deep {
+  max-width: 700px;
+  margin: 1.5rem auto 0 auto;
+  padding: 1.5rem;
+  border: 1px solid var(--fg);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+body.dark .about-deep {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.about-deep.show {
+  min-height: 250px;
+  max-height: 500px;
+  opacity: 1;
+}
+
+.show {
+  display: block;
+}
+
+.tabs button {
+  border: 1px solid var(--fg);
+  background: transparent;
+  color: var(--fg);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.tabs button:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.tab-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mood {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#moodSlider {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 0.5rem;
+}
