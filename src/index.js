@@ -7,6 +7,16 @@ particlesJS("particles-js", {
   },
 });
 
+const sound_path = 'src/assets/click_1.mp3';
+
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const clickSound = new Audio(sound_path);
+    clickSound.play();
+    clickSound.remove;
+  })
+})
+
 function toggleTheme() {
   document.body.classList.toggle("dark");
 
@@ -38,7 +48,6 @@ function vibeChange() {
   );
 }
 
-
 const about = document.getElementById("aboutContent");
 const aboutToggle = document.querySelector(".about-toggle");
 let isAboutOpen = false;
@@ -68,4 +77,10 @@ if (slider && emojiDisplay) {
   slider.addEventListener("input", () => {
     emojiDisplay.textContent = emojiMap[slider.value];
   });
+}
+
+const toast = document.getElementById("toast");
+
+function closeToast() {
+  toast.classList.add("hidden");
 }
