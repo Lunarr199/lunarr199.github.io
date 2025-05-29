@@ -72,16 +72,6 @@ h2 {
   overflow: hidden;
   width: 0;
   max-width: fit-content;
-  animation: typing 3s steps(30, end) forwards;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
 }
 
 .btns {
@@ -106,11 +96,10 @@ button:hover {
 footer {
   margin-top: 4rem;
   font-size: 0.8rem;
-  opacity: 0.6;
 }
 
 .expand-about {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   text-align: center;
 }
 

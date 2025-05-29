@@ -1,1 +1,52 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-fade-in-down: fade-in-down 1s ease-in-out forwards;
+  --animate-fade-in-down-0.3: fade-in-down-0-3 1s ease-in-out forwards;
+  --animate-fade-in-down-0.6: fade-in-down-0-6 1s ease-in-out forwards;
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-down-0-3 {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 0.3;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-down-0-6 {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 0.6;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-typewriter: typing 2s steps(30, end) forwards;
+  --animate-typewriter-sm: typing 3s steps(60, end) forwards;
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}

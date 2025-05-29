@@ -1,3 +1,7 @@
+let dark_mode = localStorage.getItem("user_theme") === "dark";
+if (dark_mode === null) dark_mode = false;
+handleMode();
+
 particlesJS("particles-js", {
   particles: {
     number: { value: 40 },
@@ -7,42 +11,44 @@ particlesJS("particles-js", {
   },
 });
 
-const sound_path = 'src/assets/click_1.mp3';
+const sound_path = "src/assets/click_1.mp3";
 
-document.querySelectorAll("button").forEach(btn => {
+document.querySelectorAll("button").forEach((btn) => {
   btn.addEventListener("click", () => {
     const clickSound = new Audio(sound_path);
     clickSound.play();
     clickSound.remove;
-  })
-})
+  });
+});
 
-function toggleTheme() {
-  document.body.classList.toggle("dark");
+function handleMode() {
+  dark_mode
+    ? document.body.classList.add("dark")
+    : document.body.classList.remove("dark");
 
   const root = document.documentElement;
-  root.style.setProperty(
-    "--bg",
-    document.body.classList.contains("dark") ? "#111" : "#f9f9f9"
-  );
+  root.style.setProperty("--bg", dark_mode ? "#111" : "#f9f9f9");
 
-  const btn = document.querySelector('.btns button');
+  const btn = document.querySelector(".btns button");
   if (btn) {
-    btn.textContent = document.body.classList.contains("dark")
-      ? "🌞 Light Mode"
-      : "🌙 Dark Mode";
+    btn.textContent = dark_mode ? "🌞 Light Mode" : "🌙 Dark Mode";
   }
+}
+
+function toggleTheme() {
+  dark_mode = !dark_mode;
+  localStorage.setItem("user_theme", dark_mode ? "dark" : "light");
+
+  handleMode();
 }
 
 const light_colors = ["#ffbbcc", "#ccffbb", "#bbddff", "#ffeecc", "#ddccff"];
 const dark_colors = ["#222233", "#332233", "#113344", "#223322", "#331122"];
 
 function vibeChange() {
-  const isDark = document.body.classList.contains("dark");
-
   document.documentElement.style.setProperty(
     "--bg",
-    isDark
+    dark_mode
       ? dark_colors[Math.floor(Math.random() * dark_colors.length)]
       : light_colors[Math.floor(Math.random() * light_colors.length)]
   );
@@ -69,7 +75,7 @@ function switchTab(tabId) {
   document.getElementById(tabId).classList.remove("hidden");
 }
 
-const emojiMap = ["🌧", "🌫", "🌤", "☀️", "🌈"];
+const emojiMap = ["🌧 (introspective)", "🌫 (unsure)", "🌤 (optimism)", "☀️ (energized)", "🌈 (aligned)"];
 const slider = document.getElementById("moodSlider");
 const emojiDisplay = document.getElementById("moodEmoji");
 
