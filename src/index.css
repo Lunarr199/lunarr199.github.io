@@ -32,6 +32,7 @@ a {
 
 a:hover {
   color: var(--link-hover);
+  text-decoration: underline;
 }
 
 p {
@@ -50,7 +51,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem;
   text-align: center;
 }
@@ -66,12 +67,33 @@ h2 {
 
 .typewriter {
   font-family: monospace;
-  border-right: 2px solid var(--fg);
   white-space: nowrap;
   overflow: hidden;
   width: 0;
   max-width: fit-content;
-  animation: typing 3s steps(30, end) forwards;
+  position: relative;
+}
+
+.typewriter::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--fg);
+  position: absolute;
+  right: 0;
+  top: 0;
+  animation: blink-caret 0.8s step-end infinite alternate;
+}
+
+.typewriter-animated {
+  animation: typing 2s steps(30, end) forwards;
+}
+
+@media (width >= 40rem) {
+  .typewriter-animated {
+    animation: typing 3s steps(60, end) forwards;
+  }
 }
 
 @keyframes typing {
@@ -83,33 +105,37 @@ h2 {
   }
 }
 
+@keyframes blink-caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 .btns {
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
 }
 
-button {
+button:not(.accept) {
   border: none;
   background: var(--fg);
   color: var(--bg);
   cursor: pointer;
   border-radius: 8px;
-  transition: transform 0.2s;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 footer {
   margin-top: 4rem;
   font-size: 0.8rem;
-  opacity: 0.6;
 }
 
 .expand-about {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   text-align: center;
 }
 

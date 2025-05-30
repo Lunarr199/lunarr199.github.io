@@ -16,32 +16,48 @@
 
   <body>
     <div id="particles-js"></div>
+    <label
+      id="toast"
+      class="fixed bottom-0 bg-blue-300/30 z-10 pl-3 pr-3 pt-4 pb-4 grid grid-cols-[auto_1fr] items-center w-full g-4 text-sm sm:hidden"
+    >
+      just letting you know this website was designed for desktop, things might
+      get wonky on other devices.
+      <button
+        class="accept rounded-lg bg-[var(--bg)] pl-2 pr-2 pt-3 pb-3 max-h-10 font-bold cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105"
+        onclick="closeToast()"
+      >
+        Okay
+      </button>
+    </label>
+
     <div class="contain">
-      <h1 class="typewriter text-3xl sm:text-[2.5rem] font-bold">
+      <h1 class="typewriter typewriter-animated text-3xl sm:text-[2.5rem] font-bold">
         Hey! I'm
         <a href="https://linktr.ee/lunar1um" target="_blank" rel="noopener"
           >Lunar</a
         >.
       </h1>
-      <p class="text-lg">A random someone who enjoys creating things.</p>
+      <p class="opacity-0 text-lg animate-fade-in-down [animation-delay:2500ms] sm:[animation-delay:100ms]">
+        A random someone who enjoys creating various things.
+      </p>
 
       <div class="btns">
         <button
           onclick="toggleTheme()"
-          class="p-[0.8em] sm:pt-[0.7em] sm:pb-[0.7em] sm:pl-[1.2em] sm:pr-[1.2em] text-base"
+          class="opacity-0 animate-fade-in-down [animation-delay:3s] sm:[animation-delay:600ms] p-[0.8em] sm:pt-[0.7em] sm:pb-[0.7em] sm:pl-[1.2em] sm:pr-[1.2em] text-base transition-transform duration-200 ease-in-out hover:scale-105"
         >
-          🌗 Toggle Theme
+          🌙 Dark Mode
         </button>
         <button
           onclick="vibeChange()"
-          class="p-[0.8em] sm:pt-[0.7em] sm:pb-[0.7em] sm:pl-[1.2em] sm:pr-[1.2em] text-base"
+          class="opacity-0 animate-fade-in-down [animation-delay:3500ms] sm:[animation-delay:1100ms] p-[0.8em] sm:pt-[0.7em] sm:pb-[0.7em] sm:pl-[1.2em] sm:pr-[1.2em] text-base transition-transform duration-200 ease-in-out hover:scale-105"
         >
           🎲 Vibe Shuffle
         </button>
       </div>
 
       <div class="expand-about">
-        <button onclick="toggleAbout()" class="about-toggle">
+        <button onclick="toggleAbout()" class="opacity-0 animate-fade-in-down [animation-delay:4s] sm:[animation-delay:1600ms] about-toggle transition-transform duration-200 ease-in-out hover:scale-105">
           ⤵ Learn more about me
         </button>
 
@@ -49,25 +65,25 @@
           <h2 class="font-medium text-xl">More About Me</h2>
 
           <div
-            class="tabs grid grid-cols-3 gap-2 mb-4 pl-2 pr-2 sm:gap-4 sm:pl-6 sm:pr-6"
+            class="tabs grid grid-cols-3 gap-2 mb-4 pl-1 pr-1 sm:gap-4 sm:pl-6 sm:pr-6"
           >
             <button
               onclick="switchTab('values')"
-              class="sm:pt-1.5 sm:pb-1.5 sm:pr-3 sm:pl-3 pt-0 pb-0 pr-2 pl-2"
+              class="sm:pt-1.5 sm:pb-1.5 sm:pr-3 sm:pl-3 pt-2 pb-2 pr-3 pl-3 transition-transform duration-200 ease-in-out hover:scale-105"
             >
               💡 Values
             </button>
             <button
               onclick="switchTab('interests')"
-              class="sm:pt-1.5 sm:pb-1.5 sm:pr-3 sm:pl-3 pt-0 pb-0 pr-2 pl-2"
+              class="sm:pt-1.5 sm:pb-1.5 sm:pr-3 sm:pl-3 pt-2 pb-2 pr-3 pl-3 transition-transform duration-200 ease-in-out hover:scale-105"
             >
               🎨 Interests
             </button>
             <button
               onclick="switchTab('thoughts')"
-              class="sm:pt-1.5 sm:pb-1.5 sm:pr-3 sm:pl-3 pt-0 pb-0 pr-2 pl-2"
+              class="sm:pt-1.5 sm:pb-1.5 sm:pr-3 sm:pl-3 pt-2 pb-2 pr-3 pl-3 transition-transform duration-200 ease-in-out hover:scale-105"
             >
-              🌙 Philosophy
+              🌙 Thoughts
             </button>
           </div>
 
@@ -107,17 +123,17 @@
           </div>
         </div>
 
-        <hr style="margin: 2rem 0; opacity: 0.3" />
+        <hr class="opacity-0 animate-fade-in-down-0.3 [animation-delay:4500ms] sm:[animation-delay:2100ms]" style="margin: 2rem 0" />
 
-        <div class="mood">
+        <div class="mood opacity-0 animate-fade-in-down [animation-delay:4700ms] sm:[animation-delay:2300ms]">
           <label for="moodSlider"
-            >Today I feel: <span id="moodEmoji">🌤</span></label
+            >Today I feel: <span id="moodEmoji">🌤 (optimism)</span></label
           >
           <input type="range" id="moodSlider" min="0" max="4" value="2" />
         </div>
       </div>
 
-      <footer>Built with ❤️ from Vietnam</footer>
+      <footer class="opacity-0 animate-fade-in-down-0.6 [animation-delay:5200ms] sm:[animation-delay:2800ms]">Built with ❤️ from Vietnam</footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
