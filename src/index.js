@@ -1,92 +1,134 @@
-let dark_mode = localStorage.getItem("user_theme") === "dark";
-if (dark_mode === null) dark_mode = false;
-handleMode();
+console.log("script loaded!");
 
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 40 },
-    size: { value: 3 },
-    move: { speed: 1 },
-    line_linked: { enable: true },
-  },
-});
+const playSound = (id, vol = 0.3) => {
+  const audio = document.getElementById(id);
+  if (audio) {
+    audio.volume = vol;
+    audio.currentTime = 0;
+    audio.play();
+  }
+};
 
-const sound_path = "src/assets/click_1.mp3";
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+} else if (localStorage.getItem("theme") === "light") {
+  document.documentElement.classList.remove("dark");
+}
 
-document.querySelectorAll("button").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const clickSound = new Audio(sound_path);
-    clickSound.play();
-    clickSound.remove;
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("toggleDark");
+  const html = document.documentElement;
+
+  toggle.addEventListener("click", () => {
+    const isDark = html.classList.toggle("dark");
+
+    playSound("sfx-open", 1.0);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 });
 
-function handleMode() {
-  dark_mode
-    ? document.body.classList.add("dark")
-    : document.body.classList.remove("dark");
+document.addEventListener("DOMContentLoaded", () => {
+  // open
+  document.querySelectorAll(".open-window").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      playSound("sfx-open", 1.0);
+      const id = btn.getAttribute("data-window");
+      const win = document.getElementById(`window-${id}`);
+      if (win) {
+        win.classList.remove("hidden");
+        win.classList.remove("animate-window-out");
+        win.classList.add("animate-window-in");
+      }
+    });
+  });
 
-  const root = document.documentElement;
-  root.style.setProperty("--bg", dark_mode ? "#111" : "#f9f9f9");
+  // close
+  document.querySelectorAll(".close-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      playSound("sfx-close", 0.5);
+      const win = btn.closest(".window");
+      win.classList.remove("animate-window-in");
+      win.classList.add("animate-window-out");
 
-  const btn = document.querySelector(".btns button");
-  if (btn) {
-    btn.textContent = dark_mode ? "🌞 Light Mode" : "🌙 Dark Mode";
-  }
-}
+      setTimeout(() => {
+        win.classList.add("hidden");
+      }, 100);
+    });
+  });
 
-function toggleTheme() {
-  dark_mode = !dark_mode;
-  localStorage.setItem("user_theme", dark_mode ? "dark" : "light");
+  // dragging
+  let dragged = null,
+    offsetX = 0,
+    offsetY = 0;
 
-  handleMode();
-}
+  document.querySelectorAll(".title-bar").forEach((bar) => {
+    bar.addEventListener("mousedown", (e) => {
+      dragged = bar.closest(".window");
+      const rect = dragged.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      dragged.style.zIndex = `${Date.now()}`;
+      e.preventDefault();
+    });
+  });
 
-const light_colors = ["#ffbbcc", "#ccffbb", "#bbddff", "#ffeecc", "#ddccff"];
-const dark_colors = ["#222233", "#332233", "#113344", "#223322", "#331122"];
+  document.addEventListener("mousemove", (e) => {
+    if (dragged) {
+      const win = dragged;
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-function vibeChange() {
-  document.documentElement.style.setProperty(
-    "--bg",
-    dark_mode
-      ? dark_colors[Math.floor(Math.random() * dark_colors.length)]
-      : light_colors[Math.floor(Math.random() * light_colors.length)]
-  );
-}
+      let newLeft = e.clientX - offsetX;
+      let newTop = e.clientY - offsetY;
 
-const about = document.getElementById("aboutContent");
-const aboutToggle = document.querySelector(".about-toggle");
-let isAboutOpen = false;
+      const maxLeft = viewportWidth - win.offsetWidth;
+      const maxTop = viewportHeight - win.offsetHeight;
 
-function toggleAbout() {
-  isAboutOpen = !isAboutOpen;
-  if (isAboutOpen) {
-    aboutToggle.textContent = "⤴ Hide details";
+      newLeft = Math.max(0, Math.min(newLeft, maxLeft));
+      newTop = Math.max(0, Math.min(newTop, maxTop));
+
+      win.style.left = `${newLeft}px`;
+      win.style.top = `${newTop}px`;
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    dragged = null;
+  });
+});
+
+const musicBtn = document.getElementById("musicToggle");
+const music = document.getElementById("bgMusic");
+const noteParticles = document.getElementById("noteParticles");
+
+let musicPlaying = false;
+let particleInterval = null;
+
+const createNote = () => {
+  const note = document.createElement("div");
+  note.className = "music-note";
+  note.textContent = "🎵";
+
+  note.style.left = `${Math.random() * 80 + 10}%`;
+  note.style.fontSize = `${Math.random() * 8 + 12}px`;
+
+  noteParticles.appendChild(note);
+
+  setTimeout(() => {
+    note.remove();
+  }, 1200);
+};
+
+musicBtn.addEventListener("click", () => {
+  musicPlaying = !musicPlaying;
+  playSound('sfx-open', 1.0);
+
+  if (musicPlaying) {
+    music.play();
+    particleInterval = setInterval(createNote, 1000);
   } else {
-    aboutToggle.textContent = "⤵ Learn more about me";
+    music.pause();
+    clearInterval(particleInterval);
   }
-  about.classList.toggle("show");
-}
-
-function switchTab(tabId) {
-  document.querySelectorAll(".tab-content").forEach((tab) => {
-    tab.classList.add("hidden");
-  });
-  document.getElementById(tabId).classList.remove("hidden");
-}
-
-const emojiMap = ["🌧 (introspective)", "🌫 (unsure)", "🌤 (optimism)", "☀️ (energized)", "🌈 (aligned)"];
-const slider = document.getElementById("moodSlider");
-const emojiDisplay = document.getElementById("moodEmoji");
-
-if (slider && emojiDisplay) {
-  slider.addEventListener("input", () => {
-    emojiDisplay.textContent = emojiMap[slider.value];
-  });
-}
-
-const toast = document.getElementById("toast");
-
-function closeToast() {
-  toast.classList.add("hidden");
-}
+});
