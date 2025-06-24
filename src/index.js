@@ -1,5 +1,3 @@
-console.log("script loaded!");
-
 const playSound = (id, vol = 0.3) => {
   const audio = document.getElementById(id);
   if (audio) {
@@ -122,7 +120,7 @@ const createNote = () => {
 
 musicBtn.addEventListener("click", () => {
   musicPlaying = !musicPlaying;
-  playSound('sfx-open', 1.0);
+  playSound("sfx-open", 1.0);
 
   if (musicPlaying) {
     music.play();
@@ -131,4 +129,13 @@ musicBtn.addEventListener("click", () => {
     music.pause();
     clearInterval(particleInterval);
   }
+});
+
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 40 },
+    size: { value: 3 },
+    move: { speed: 1 },
+    line_linked: { enable: true },
+  },
 });

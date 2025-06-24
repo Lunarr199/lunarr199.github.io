@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>lunar's archive</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><text y=&quot;.9em&quot; font-size=&quot;85&quot;>✨</text></svg>" type="image/x-icon" id="favicon">
+    <link
+      rel="icon"
+      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="85">🌙</text></svg>'
+      type="image/x-icon"
+      id="favicon"
+    />
     <link href="./src/output.css" rel="stylesheet" />
   </head>
   <style>
@@ -30,8 +35,9 @@
     }
   </style>
   <body
-    class="min-h-screen bg-gradient-to-br from-purple-100 to-blue-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 font-sans transition flex items-center justify-center px-4 py-10"
+    class="min-h-screen bg-gradient-to-br from-purple-100 to-blue-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 font-jetbrains-mono transition flex items-center justify-center px-4 py-10"
   >
+    <div id="particles-js" class="fixed top-0 left-0 w-full h-full"></div>
     <div class="absolute top-4 right-4 z-3">
       <button
         id="toggleDark"
@@ -78,7 +84,7 @@
       <button
         id="musicToggle"
         class="relative w-10 h-10 flex items-center justify-center transition hover:drop-shadow-[0_0_6px_rgba(200,200,255,0.6)] hover:scale-110"
-        aria-label="Toggle music"
+        aria-label="toggle music"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -101,17 +107,12 @@
         ></div>
       </button>
     </div>
-    <audio
-      id="bgMusic"
-      src="./assets/bg-music.mp3"
-      loop
-      preload="auto"
-    ></audio>
+    <audio id="bgMusic" src="./assets/bg-music.mp3" loop preload="auto"></audio>
 
     <div class="w-full max-w-md space-y-4">
       <!-- title -->
       <h1
-        class="text-3xl font-semibold text-center text-gray-700 dark:text-gray-100 mb-6 flex items-center justify-center gap-3"
+        class="text-3xl font-semibold text-center text-gray-700 dark:text-gray-100 mb-6 flex items-center justify-center gap-3 select-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +135,7 @@
       <a
         href="#about"
         data-window="about"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +155,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             personnel.md
           </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
+          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
             who i am. specs, quirks, and core data.
           </p>
         </div>
@@ -163,7 +164,7 @@
       <a
         href="#projects"
         data-window="projects"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +182,7 @@
         </svg>
         <div>
           <p class="font-semibold text-gray-800 dark:text-gray-200">works/</p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
+          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
             stuff i've built, broken, or shipped.
           </p>
         </div>
@@ -190,7 +191,7 @@
       <a
         href="#notes"
         data-window="notes"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +211,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             scribbles.txt
           </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
+          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
             raw thoughts, scraps, and ideas.
           </p>
         </div>
@@ -219,7 +220,7 @@
       <a
         href="#quotes"
         data-window="quotes"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -239,7 +240,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             quotes.sys
           </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
+          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
             saved words that sound like me.
           </p>
         </div>
@@ -248,7 +249,7 @@
       <a
         href="#links"
         data-window="links"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +269,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             contacts.cfg
           </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
+          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
             ways to reach me. ports open.
           </p>
         </div>
@@ -280,29 +281,34 @@
       <!-- personal -->
       <div
         id="window-about"
-        class="window hidden absolute top-24 left-24 w-[520px] pointer-events-auto"
+        class="window hidden fixed md:absolute bottom-0 md:bottom-auto left-0 md:top-24 md:left-24 w-full md:w-[520px] md:h-auto pointer-events-auto z-50 transition-all duration-300 ease-in-out"
       >
         <div
-          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-xl shadow-lg"
+          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-none md:rounded-xl shadow-lg w-full h-full md:h-auto flex flex-col"
         >
           <!-- title bar -->
           <div
-            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 cursor-move rounded-t-xl"
+            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 md:rounded-t-xl"
           >
-            <span class="font-semibold text-gray-800 dark:text-gray-200"
-              >personnel.md</span
+            <span
+              class="select-none font-semibold text-gray-800 dark:text-gray-200"
             >
+              personnel.md
+            </span>
             <button
               class="close-btn text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-red-400 transition hover:scale-120"
             >
-              &times;
+              <span class="md:hidden text-xl">←</span>
+              <span class="hidden md:inline text-lg">&times;</span>
             </button>
           </div>
 
           <!-- content -->
-          <div class="p-4">
+          <div class="flex-1 p-4 overflow-auto">
             <div class="flex justify-between">
-              <div class="text-sm text-gray-700 dark:text-gray-300">
+              <div
+                class="text-md text-gray-700 dark:text-gray-300 font-manrope"
+              >
                 <strong class="text-lg">hi! i'm lunar</strong>
                 <br />
                 or also known as..
@@ -320,7 +326,7 @@
                 title="rahh who let this blahaj here??"
               />
             </div>
-            <div class="text-sm text-gray-700 dark:text-gray-300">
+            <div class="text-md text-gray-700 dark:text-gray-300 font-manrope">
               <strong class="text-base leading-relaxed">about</strong>
               <br />
               i'm someone who thinks too much, has a short memory and is really
@@ -350,27 +356,31 @@
       <!-- projects -->
       <div
         id="window-projects"
-        class="window hidden absolute top-36 left-36 w-[520px] pointer-events-auto"
+        class="window hidden fixed md:absolute bottom-0 md:bottom-auto left-0 md:top-36 md:left-36 w-full md:w-[520px] md:h-auto pointer-events-auto z-50 transition-all duration-300 ease-in-out"
       >
         <div
-          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-xl shadow-lg"
+          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-none md:rounded-xl shadow-lg w-full h-full md:h-auto flex flex-col"
         >
           <!-- title bar -->
           <div
-            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 cursor-move rounded-t-xl"
+            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 md:rounded-t-xl"
           >
-            <span class="font-semibold text-gray-800 dark:text-gray-200"
+            <span
+              class="select-none font-semibold text-gray-800 dark:text-gray-200"
               >works/</span
             >
             <button
               class="close-btn text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-red-400 transition hover:scale-120"
             >
-              &times;
+              <span class="md:hidden text-xl">←</span>
+              <span class="hidden md:inline text-lg">&times;</span>
             </button>
           </div>
 
           <!-- content -->
-          <div class="p-4 text-sm text-gray-700 dark:text-gray-300">
+          <div
+            class="p-4 text-md flex-1 overflow-auto text-gray-700 dark:text-gray-300 font-manrope"
+          >
             <strong class="text-base leading-tight">roblox games</strong>
             <br />
             i used to be a roblox game developer, the finished products are
@@ -408,27 +418,31 @@
       <!-- notes -->
       <div
         id="window-notes"
-        class="window hidden absolute top-36 left-36 w-[450px] pointer-events-auto"
+        class="window hidden fixed md:absolute bottom-0 md:bottom-auto left-0 md:top-36 md:left-36 w-full md:w-[450px] md:h-auto pointer-events-auto z-50 transition-all duration-300 ease-in-out"
       >
         <div
-          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-xl shadow-lg"
+          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-none md:rounded-xl shadow-lg"
         >
           <!-- title bar -->
           <div
-            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 cursor-move rounded-t-xl"
+            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 md:rounded-t-xl"
           >
-            <span class="font-semibold text-gray-800 dark:text-gray-200"
+            <span
+              class="select-none font-semibold text-gray-800 dark:text-gray-200"
               >scribbles.txt</span
             >
             <button
               class="close-btn text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-red-400 transition hover:scale-120"
             >
-              &times;
+              <span class="md:hidden text-xl">←</span>
+              <span class="hidden md:inline text-lg">&times;</span>
             </button>
           </div>
 
           <!-- content -->
-          <div class="p-4 text-sm text-gray-700 dark:text-gray-300">
+          <div
+            class="p-4 flex-1 overflow-auto text-md text-gray-700 dark:text-gray-300 font-manrope"
+          >
             <strong class="text-base leading-tight"
               >this may be updated regularly</strong
             >
@@ -444,6 +458,10 @@
             is it that difficult to keep a good friend?
             <br />
             i'm really into minesweeper and sudoku rn idk why
+            <br />
+            LISTEN, i use outlook just to mask my real gmail, since it has my real name in it
+            <br />
+            whew, luckily i can forward them so i don't have to open outlook
           </div>
         </div>
       </div>
@@ -451,27 +469,31 @@
       <!-- quotes -->
       <div
         id="window-quotes"
-        class="window hidden absolute top-36 left-36 w-[450px] pointer-events-auto"
+        class="window hidden fixed md:absolute bottom-0 md:bottom-auto left-0 md:top-36 md:left-36 w-full md:w-[450px] md:h-auto pointer-events-auto z-50 transition-all duration-300 ease-in-out"
       >
         <div
-          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-xl shadow-lg"
+          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-none md:rounded-xl shadow-lg"
         >
           <!-- title bar -->
           <div
-            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 cursor-move rounded-t-xl"
+            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 md:rounded-t-xl"
           >
-            <span class="font-semibold text-gray-800 dark:text-gray-200"
+            <span
+              class="select-none font-semibold text-gray-800 dark:text-gray-200"
               >quotes.sys</span
             >
             <button
               class="close-btn text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-red-400 transition hover:scale-120"
             >
-              &times;
+              <span class="md:hidden text-xl">←</span>
+              <span class="hidden md:inline text-lg">&times;</span>
             </button>
           </div>
 
           <!-- content -->
-          <div class="p-4 text-sm text-gray-700 dark:text-gray-300">
+          <div
+            class="p-4 flex-1 overflow-auto text-md text-gray-700 dark:text-gray-300 font-manrope"
+          >
             "You're allowed to feel lost. Maps are only useful when you stop and
             look."
             <br />
@@ -510,45 +532,47 @@
       <!-- links -->
       <div
         id="window-links"
-        class="window hidden absolute top-36 left-36 w-[450px] pointer-events-auto"
+        class="window hidden fixed md:absolute bottom-0 md:bottom-auto left-0 md:top-36 md:left-36 w-full md:w-[450px] md:h-auto pointer-events-auto z-50 transition-all duration-300 ease-in-out"
       >
         <div
-          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-xl shadow-lg"
+          class="bg-white/30 dark:bg-white/10 border border-white/20 dark:border-gray-700 backdrop-blur-md rounded-none md:rounded-xl shadow-lg"
         >
           <!-- title bar -->
           <div
-            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 cursor-move rounded-t-xl"
+            class="title-bar flex justify-between items-center px-4 py-2 bg-white/20 dark:bg-white/5 border-b border-white/20 dark:border-gray-600 md:rounded-t-xl"
           >
-            <span class="font-semibold text-gray-800 dark:text-gray-200"
+            <span
+              class="select-none font-semibold text-gray-800 dark:text-gray-200"
               >contacts.cfg</span
             >
             <button
               class="close-btn text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-red-400 transition hover:scale-120"
             >
-              &times;
+              <span class="md:hidden text-xl">←</span>
+              <span class="hidden md:inline text-lg">&times;</span>
             </button>
           </div>
 
           <!-- content -->
           <div
-            class="p-4 grid grid-cols-2 sm:grid-cols-5 gap-4 text-center text-sm text-gray-800 dark:text-gray-200"
+            class="p-4 flex-1 overflow-auto grid grid-cols-2 md:grid-cols-5 gap-4 text-center text-md text-gray-800 dark:text-gray-200"
           >
             <!-- twitter -->
             <a
               href="https://x.com/lunar1um"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-twitter-x size-8"
+                class="bi bi-twitter size-8"
                 viewBox="0 0 16 16"
               >
                 <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"
                 />
               </svg>
               <span>Twitter</span>
@@ -557,7 +581,8 @@
             <!-- email -->
             <a
               href="mailto:lunarr199@outlook.com"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
+              title="don't worry, it will be forwarded to my gmail :)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -578,7 +603,7 @@
             <a
               href="https://open.spotify.com/user/317lys4ze7qfx73wmeki6lvuamia"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -599,7 +624,7 @@
             <a
               href="https://discordapp.com/users/451335202342436866"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -620,7 +645,7 @@
             <a
               href="https://www.roblox.com/users/342032186/profile"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 role="img"
@@ -642,7 +667,7 @@
             <a
               href="https://www.youtube.com/@lunar1997"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -663,7 +688,7 @@
             <a
               href="https://www.github.com/Lunarr199"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -684,7 +709,7 @@
             <a
               href="https://www.reddit.com/u/Lunar199/s/9z0r10maAc"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -708,7 +733,7 @@
             <a
               href="https://www.notion.so/1bda666f29858069abf8d8562732c6f6?v=1bda666f29858061a920000cec706539&source=copy_link"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -729,7 +754,7 @@
             <a
               href="about:blank"
               target="_blank"
-              class="flex flex-col items-center gap-1 hover:scale-105 transition"
+              class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -752,14 +777,10 @@
         </div>
       </div>
     </div>
+
     <audio id="sfx-open" src="./assets/click.wav" preload="auto"></audio>
     <audio id="sfx-close" src="./assets/whoosh.wav" preload="auto"></audio>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="./src/index.js"></script>
   </body>
-
-  <div
-    class="fixed w-full h-full block md:hidden bg-gray-200/50 backdrop-blur-lg z-10 text-3xl text-gray-700 text-center"
-  >
-    sorry! this website's support for smaller devices are still being worked on!
-  </div>
 </html>

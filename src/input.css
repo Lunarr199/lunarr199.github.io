@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -5,6 +6,8 @@
 @theme {
   --animate-window-in: windowIn 0.1s ease-in-out forwards;
   --animate-window-out: windowOut 0.1s ease-in-out forwards;
+  --font-jetbrains-mono: "Jetbrains Mono", monospace;
+  --font-manrope: "Manrope", sans-serif;
 
   @keyframes windowIn {
     0% {
