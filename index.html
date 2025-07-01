@@ -33,6 +33,10 @@
         opacity: 0;
       }
     }
+
+    .window.dragging {
+      transition: none !important;
+    }
   </style>
   <body
     class="min-h-screen bg-gradient-to-br from-purple-100 to-blue-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 font-jetbrains-mono transition flex items-center justify-center px-4 py-10"
@@ -112,7 +116,7 @@
     <div class="w-full max-w-md space-y-4">
       <!-- title -->
       <h1
-        class="text-3xl font-semibold text-center text-gray-700 dark:text-gray-100 mb-6 flex items-center justify-center gap-3 select-none"
+        class="text-[28px] lg:text-3xl font-semibold text-center text-gray-700 dark:text-gray-100 mb-6 flex items-center justify-center gap-3 select-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -132,8 +136,8 @@
       </h1>
 
       <h1
-        class="fixed z-2 text-yellow-300 text-xl text-shadow-gray-800 shadow-2xl animate-subtle-bounce font-jetbrains-mono text-center mt-[-45px] ml-[265px] -rotate-12 select-none"
-        title="minceraft reference????"
+        class="fixed z-2 text-yellow-300 text-sm lg:text-xl animate-subtle-bounce font-jetbrains-mono text-center mt-[-40px] lg:mt-[-45px] ml-[200px] lg:ml-[265px] -rotate-12 select-none"
+        title="minceraft reference?!1?!?"
       >
         haha info dump!!
       </h1>
@@ -142,7 +146,7 @@
       <a
         href="#about"
         data-window="about"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-4 py-2 lg:px-6 lg:py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +154,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-8"
+          class="size-7 lg:size-8"
         >
           <path
             stroke-linecap="round"
@@ -162,7 +166,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             personnel.md
           </p>
-          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
+          <p class="text-sm lg:text-md text-gray-700 dark:text-gray-300 font-manrope">
             who i am. specs, quirks, and core data.
           </p>
         </div>
@@ -171,7 +175,7 @@
       <a
         href="#projects"
         data-window="projects"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-4 py-2 lg:px-6 lg:py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +183,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-8"
+          class="size-7 lg:size-8"
         >
           <path
             stroke-linecap="round"
@@ -189,7 +193,7 @@
         </svg>
         <div>
           <p class="font-semibold text-gray-800 dark:text-gray-200">works/</p>
-          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
+          <p class="text-sm lg:text-md text-gray-700 dark:text-gray-300 font-manrope">
             stuff i've built, broken, or shipped.
           </p>
         </div>
@@ -198,7 +202,7 @@
       <a
         href="#notes"
         data-window="notes"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-4 py-2 lg:px-6 lg:py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -206,7 +210,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-8"
+          class="size-7 lg:size-8"
         >
           <path
             stroke-linecap="round"
@@ -218,7 +222,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             scribbles.txt
           </p>
-          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
+          <p class="text-sm lg:text-md text-gray-700 dark:text-gray-300 font-manrope">
             raw thoughts, scraps, and ideas.
           </p>
         </div>
@@ -227,7 +231,7 @@
       <a
         href="#quotes"
         data-window="quotes"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-4 py-2 lg:px-6 lg:py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +239,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-8"
+          class="size-7 lg:size-8"
         >
           <path
             stroke-linecap="round"
@@ -247,7 +251,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             quotes.sys
           </p>
-          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
+          <p class="text-sm lg:text-md text-gray-700 dark:text-gray-300 font-manrope">
             saved words that sound like me.
           </p>
         </div>
@@ -256,7 +260,7 @@
       <a
         href="#links"
         data-window="links"
-        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-6 py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
+        class="open-window flex items-center gap-4 bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 transition backdrop-blur-md rounded-xl px-4 py-2 lg:px-6 lg:py-4 shadow-md hover:shadow-lg border border-white/20 dark:border-gray-600 active:translate-y-[3px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -264,7 +268,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-8"
+          class="size-7 lg:size-8"
         >
           <path
             stroke-linecap="round"
@@ -276,7 +280,7 @@
           <p class="font-semibold text-gray-800 dark:text-gray-200">
             contacts.cfg
           </p>
-          <p class="text-md text-gray-700 dark:text-gray-300 font-manrope">
+          <p class="text-sm lg:text-md text-gray-700 dark:text-gray-300 font-manrope">
             ways to reach me. ports open.
           </p>
         </div>
@@ -443,6 +447,9 @@ i'm considering making a gallery section to post random images, idk about that t
 
 i swear how i didn't know the existence of the &lt;pre&gt; class :sob: that would have saved me so much time
 the word "silly" is too overused to the point it's so bland and meaningless now (personally)
+
+1st day of july: pride month subscription ended annddd it's chicken wings day!!
+i hope everyone got the best chicken wings today (totally not an implication)
 </pre>
         </div>
       </div>

@@ -7,6 +7,7 @@
   --animate-window-in: windowIn 0.1s ease-in-out forwards;
   --animate-window-out: windowOut 0.1s ease-in-out forwards;
   --animate-subtle-bounce: subtleBounce 2s ease-in-out infinite;
+  --animate-squish: squish 0.3s ease-in-out;
   --font-jetbrains-mono: "Jetbrains Mono", monospace;
   --font-manrope: "Manrope", sans-serif;
 
@@ -39,6 +40,21 @@
     }
     50% {
       transform: scale(1.1);
+    }
+  }
+
+  @keyframes squish {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.8);
+    }
+    75% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 }
