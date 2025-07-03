@@ -12,32 +12,6 @@
     />
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <style>
-    .music-note {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      font-size: 16px;
-      opacity: 0;
-      animation: floatNote 1.2s ease-out forwards;
-      pointer-events: none;
-    }
-
-    @keyframes floatNote {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-60px) scale(0.8);
-        opacity: 0;
-      }
-    }
-
-    .window.dragging {
-      transition: none !important;
-    }
-  </style>
   <body
     class="min-h-screen bg-gradient-to-br from-purple-100 to-blue-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 font-jetbrains-mono transition flex items-center justify-center px-4 py-10"
   >
@@ -136,10 +110,11 @@
       </h1>
 
       <h1
-        class="fixed z-2 text-yellow-300 text-sm lg:text-xl animate-subtle-bounce font-jetbrains-mono text-center mt-[-40px] lg:mt-[-45px] ml-[200px] lg:ml-[265px] -rotate-12 select-none"
+        id="splash"
+        class="fixed z-2 text-orange-400 dark:text-yellow-300 text-sm lg:text-xl animate-subtle-bounce font-jetbrains-mono text-center mt-[-40px] lg:mt-[-45px] ml-[200px] lg:ml-[265px] -rotate-12 select-none"
         title="minceraft reference?!1?!?"
       >
-        haha info dump!!
+        [ERROR]
       </h1>
 
       <!-- cards -->
@@ -164,7 +139,7 @@
         </svg>
         <div>
           <p class="font-semibold text-gray-800 dark:text-gray-200">
-            personnel.md
+            profile.md
           </p>
           <p
             class="text-sm lg:text-md text-gray-700 dark:text-gray-300 font-manrope"
@@ -314,7 +289,7 @@
             <span
               class="select-none font-semibold text-gray-800 dark:text-gray-200"
             >
-              personnel.md
+              profile.md
             </span>
             <button
               class="close-btn text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-red-400 transition hover:scale-120"
@@ -549,6 +524,7 @@ i haven't eaten anything "solid" for days straight. the oral ulcer monster came 
               href="https://x.com/lunar1um"
               target="_blank"
               class="flex flex-col items-center gap-1 hover:scale-105 transition font-manrope"
+              title="bro really thought could make me call it 'X'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

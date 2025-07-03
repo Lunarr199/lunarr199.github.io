@@ -58,3 +58,30 @@
     }
   }
 }
+
+@layer components {
+  .music-note {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    font-size: 16px;
+    opacity: 0;
+    animation: floatNote 1.2s ease-out forwards;
+    pointer-events: none;
+  }
+
+  .window.dragging {
+    transition: none !important;
+  }
+
+  @keyframes floatNote {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-60px) scale(0.8);
+      opacity: 0;
+    }
+  }
+}

@@ -9,6 +9,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-400: oklch(70.4% 0.191 22.216);
+    --color-orange-400: oklch(75% 0.183 55.934);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
     --color-blue-200: oklch(88.2% 0.059 254.128);
     --color-purple-100: oklch(94.6% 0.033 307.174);
@@ -283,9 +284,6 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-40 {
-    height: calc(var(--spacing) * 40);
-  }
   .h-42 {
     height: calc(var(--spacing) * 42);
   }
@@ -300,9 +298,6 @@
   }
   .w-10 {
     width: calc(var(--spacing) * 10);
-  }
-  .w-40 {
-    width: calc(var(--spacing) * 40);
   }
   .w-42 {
     width: calc(var(--spacing) * 42);
@@ -324,10 +319,6 @@
   }
   .-rotate-12 {
     rotate: calc(12deg * -1);
-  }
-  .rotate-x-45 {
-    --tw-rotate-x: rotateX(45deg);
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -505,8 +496,8 @@
   .text-gray-800 {
     color: var(--color-gray-800);
   }
-  .text-yellow-300 {
-    color: var(--color-yellow-300);
+  .text-orange-400 {
+    color: var(--color-orange-400);
   }
   .italic {
     font-style: italic;
@@ -603,27 +594,10 @@
       }
     }
   }
-  .hover\:rotate-x-30 {
+  .hover\:-rotate-12 {
     &:hover {
       @media (hover: hover) {
-        --tw-rotate-x: rotateX(30deg);
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-      }
-    }
-  }
-  .hover\:rotate-x-45 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-rotate-x: rotateX(45deg);
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-      }
-    }
-  }
-  .hover\:rotate-y-45 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-rotate-y: rotateY(45deg);
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+        rotate: calc(12deg * -1);
       }
     }
   }
@@ -631,38 +605,6 @@
     &:hover {
       @media (hover: hover) {
         --tw-rotate-z: rotateZ(calc(3deg * -1));
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-      }
-    }
-  }
-  .hover\:-rotate-z-5 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-rotate-z: rotateZ(calc(5deg * -1));
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-      }
-    }
-  }
-  .hover\:rotate-z-5 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-rotate-z: rotateZ(5deg);
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-      }
-    }
-  }
-  .hover\:rotate-z-10 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-rotate-z: rotateZ(10deg);
-        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-      }
-    }
-  }
-  .hover\:rotate-z-30 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-rotate-z: rotateZ(30deg);
         transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
       }
     }
@@ -913,6 +855,11 @@
       color: var(--color-gray-300);
     }
   }
+  .dark\:text-yellow-300 {
+    &:where(.dark, .dark *) {
+      color: var(--color-yellow-300);
+    }
+  }
   .dark\:hover\:bg-white\/20 {
     &:where(.dark, .dark *) {
       &:hover {
@@ -934,6 +881,30 @@
           filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
         }
       }
+    }
+  }
+}
+@layer components {
+  .music-note {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    font-size: 16px;
+    opacity: 0;
+    animation: floatNote 1.2s ease-out forwards;
+    pointer-events: none;
+  }
+  .window.dragging {
+    transition: none !important;
+  }
+  @keyframes floatNote {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-60px) scale(0.8);
+      opacity: 0;
     }
   }
 }

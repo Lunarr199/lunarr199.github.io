@@ -57,6 +57,31 @@ const ThemeManager = {
   },
 };
 
+const indexHandler = {
+  index: 100,
+  get() {
+    this.index += 1;
+    return this.index;
+  },
+};
+
+// splashes
+const SplashManager = {
+  init() {
+    const splashDisplay = document.getElementById("splash");
+
+    if (!splashDisplay) return;
+
+    const availableSplashes = [
+      "haha info dump!!",
+      // "how did <strong>you</strong> get here?",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * availableSplashes.length);
+    splashDisplay.innerHTML = availableSplashes[randomIndex];
+  },
+};
+
 // windows
 const WindowManager = {
   init() {
@@ -115,7 +140,7 @@ const WindowManager = {
         offsetX = e.clientX - rect.left;
         offsetY = e.clientY - rect.top;
 
-        dragged.style.zIndex = Date.now();
+        dragged.style.zIndex = indexHandler.get();
         dragged.classList.add("dragging");
         e.preventDefault();
       });
@@ -216,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
   WindowManager.init();
   MusicManager.init();
   ParticlesManager.init();
+  SplashManager.init();
 });
 
-// apply theme
 ThemeManager.applyStoredTheme();
